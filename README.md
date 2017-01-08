@@ -49,6 +49,8 @@ The byte length and column is in the ASCII encoding (binary 0x30-0x3A).
 The list notion `'('` and `')'` is in the ASCII encoding (binary 0x28, 0x29).
 the data is 'verbatim' without encoding.
 
+Empty value is represented as `0:`, empty string is '()'.
+
 ### Transport Representation
 
 Binary mode Transport Representation is the same as Canonical Representation.
@@ -65,11 +67,16 @@ without outer bracket and wrapped in `'{'` `'}'` (binary 0x7B, 0x7D) pairs.
 Printable representation is a human readble version of canonical representation.
 
 It omits the prefixed byte length and the column.
+
 It prints out nested list in a indented way.
+
 It prints out the item in list as individual rows.
+
 It prints out the binary octet-string as is if all of them falls into the 7-bit
 printable ascii (0x20-0x7E) and '\t' 0x09 '\n' 0x0A '\r' 0x0D. Or the one byte
 spaced hex encoding.
+
+Empty value is showen as qouted `'null'`. Empty List is `()`
 
     (test)
     (0
